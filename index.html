@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAVA | Vaibhavi and Vandan Architects — Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== CSS VARIABLES — BRAND PALETTE ===== */
+        :root {
+            --copper: #A6652A;
+            --copper-light: #C4883E;
+            --copper-dark: #7A4A1E;
+            --copper-glow: #D4A26A;
+            --gold: #C9A96E;
+            --gold-light: #E0CC9D;
+            --charcoal: #2C2C2C;
+            --charcoal-light: #3D3D3D;
+            --dark: #1A1A1A;
+            --off-black: #111111;
+            --cream: #FAF6F1;
+            --warm-white: #FDF9F4;
+            --warm-gray: #E8E2DA;
+            --text-dark: #2C2C2C;
+            --text-medium: #5C5C5C;
+            --text-light: #8A8A8A;
+            --overlay-dark: rgba(26, 26, 26, 0.75);
+            --overlay-copper: rgba(166, 101, 42, 0.12);
+        }
+
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .accent-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== UTILITY ===== */
+        .container {
+            max-width: 1340px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-copper { color: var(--copper); }
+        .text-gold { color: var(--gold); }
+        .bg-dark { background: var(--dark); color: #fff; }
+        .bg-charcoal { background: var(--charcoal); color: #fff; }
+        .bg-cream { background: var(--cream); }
+        .bg-warm-white { background: var(--warm-white); }
+
+        .section-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--copper);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 40px;
+            height: 1.5px;
+            background: var(--copper);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title.light {
+            color: #fff;
+        }
+
+        .section-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .section-subtitle.light {
+            color: var(--gold-light);
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--copper), var(--gold));
+            margin: 30px 0;
+        }
+
+        .divider.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== PAGE BREAK FOR PDF ===== */
+        .page-break {
+            page-break-before: always;
+            break-before: page;
+        }
+
+        @media print {
+            .page-break {
+                page-break-before: always;
+            }
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* =========================================================
+           HERO / COVER PAGE
+           ========================================================= */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--off-black) 0%, var(--charcoal) 40%, var(--copper-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 80%, rgba(166,101,42,0.15), transparent),
+                radial-gradient(ellipse 60% 50% at 80% 20%, rgba(201,169,110,0.1), transparent);
+        }
+
+        /* Geometric pattern overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image:
+                linear-gradient(30deg, #fff 12%, transparent 12.5%, transparent 87%, #fff 87.5%, #fff),
+                linear-gradient(150deg, #fff 12%, transparent 12.5%, transparent 87%, #fff 87.5%, #fff),
+                linear-gradient(30deg, #fff 12%, transparent 12.5%, transparent 87%, #fff 87.5%, #fff),
+                linear-gradient(150deg, #fff 12%, transparent 12.5%, transparent 87%, #fff 87.5%, #fff),
+                linear-gradient(60deg, rgba(255,255,255,0.6) 25%, transparent 25.5%, transparent 75%, rgba(255,255,255,0.6) 75%),
+                linear-gradient(60deg, rgba(255,255,255,0.6) 25%, transparent 25.5%, transparent 75%, rgba(255,255,255,0.6) 75%);
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 60px;
+        }
+
+        .hero-logo {
+            width: 220px;
+            margin: 0 auto 40px;
+            filter: brightness(1.1);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: var(--copper-light);
+        }
+
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            font-style: italic;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .hero-meta-item {
+            text-align: center;
+        }
+
+        .hero-meta-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--copper-light);
+            font-weight: 600;
+        }
+
+        .hero-meta-label {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-top: 4px;
+        }
+
+        .hero-border {
+            position: absolute;
+            inset: 30px;
+            border: 1px solid rgba(166,101,42,0.25);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-color: var(--copper-light);
+            border-style: solid;
+            z-index: 3;
+        }
+        .hero-corner.tl { top: 28px; left: 28px; border-width: 2px 0 0 2px; }
+        .hero-corner.tr { top: 28px; right: 28px; border-width: 2px 2px 0 0; }
+        .hero-corner.bl { bottom: 28px; left: 28px; border-width: 0 0 2px 2px; }
+        .hero-corner.br { bottom: 28px; right: 28px; border-width: 0 2px 2px 0; }
+
+        /* =========================================================
+           ABOUT / PHILOSOPHY
+           ========================================================= */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image-wrap {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .about-image-accent {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 100%;
+            height: 100%;
+            border: 1.5px solid var(--copper);
+            border-radius: 2px;
+            z-index: -1;
+        }
+
+        .about-text h2 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+
+        .about-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--copper);
+            font-style: italic;
+            border-left: 3px solid var(--copper);
+            padding-left: 24px;
+            margin: 30px 0;
+            line-height: 1.6;
+        }
+
+        .about-text p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--warm-gray);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--copper);
+            font-weight: 600;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* =========================================================
+           SERVICES
+           ========================================================= */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: var(--warm-white);
+            padding: 45px 35px;
+            border-radius: 2px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--copper), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            border-color: var(--warm-gray);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--copper), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--charcoal);
+        }
+
+        .service-card p {
+            font-size: 0.88rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           PORTFOLIO CATEGORY HEADER
+           ========================================================= */
+        .category-header {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .category-header-content {
+            position: relative;
+            z-index: 2;
+            padding: 60px 40px;
+        }
+
+        .category-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            color: rgba(255,255,255,0.08);
+            font-weight: 700;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            line-height: 1;
+        }
+
+        .category-header h2 {
+            font-size: 3.5rem;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .category-header .section-subtitle {
+            color: var(--gold-light);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Category color themes */
+        .cat-apartment {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, var(--copper-dark) 100%);
+        }
+        .cat-villa {
+            background: linear-gradient(135deg, #1c2a1c 0%, #2c3828 50%, #4a6741 100%);
+        }
+        .cat-landscape {
+            background: linear-gradient(135deg, #1a2433 0%, #2a3d4f 50%, #3d6b5e 100%);
+        }
+        .cat-office {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 50%, #4a4a6a 100%);
+        }
+        .cat-hospital {
+            background: linear-gradient(135deg, #1a2a2a 0%, #2a4040 50%, #3d6060 100%);
+        }
+        .cat-transformation {
+            background: linear-gradient(135deg, var(--copper-dark) 0%, var(--charcoal) 50%, #1a1a1a 100%);
+        }
+        .cat-render {
+            background: linear-gradient(135deg, #2a1a2a 0%, #3d2d3d 50%, #5a4060 100%);
+        }
+
+        /* =========================================================
+           PROJECT CARDS / GALLERY
+           ========================================================= */
+        .gallery-section {
+            padding: 80px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .gallery-grid.two-col {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .gallery-grid.three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .project-card-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-card-image {
+            transform: scale(1.03);
+        }
+
+        .project-card.tall .project-card-image {
+            height: 500px;
+        }
+
+        .project-card.short .project-card-image {
+            height: 300px;
+        }
+
+        .project-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+            color: #fff;
+        }
+
+        .project-card-tag {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--copper-light);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .project-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .project-card-location {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+        }
+
+        /* =========================================================
+           COMPARISON (RENDER VS REAL)
+           ========================================================= */
+        .comparison-section {
+            padding: 80px 0;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 40px 1fr;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 50px;
+        }
+
+        .comparison-image-wrap {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .comparison-image {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+
+        .comparison-label {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .comparison-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--copper);
+        }
+
+        .comparison-arrow svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--copper);
+        }
+
+        /* =========================================================
+           TRANSFORMATION (BEFORE / AFTER)
+           ========================================================= */
+        .transform-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            margin-bottom: 40px;
+            background: var(--copper);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .transform-side {
+            position: relative;
+        }
+
+        .transform-image {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .transform-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--copper);
+            color: #fff;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            font-weight: 600;
+        }
+
+        .transform-badge.after {
+            background: var(--charcoal);
+        }
+
+        /* =========================================================
+           UNDER CONSTRUCTION
+           ========================================================= */
+        .construction-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(166,101,42,0.1);
+            color: var(--copper);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            font-weight: 600;
+            border: 1px solid rgba(166,101,42,0.3);
+            margin-bottom: 15px;
+        }
+
+        .construction-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--copper);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* =========================================================
+           WORKING DRAWINGS SECTION
+           ========================================================= */
+        .drawing-card {
+            background: #fff;
+            padding: 25px;
+            border: 1px solid var(--warm-gray);
+            border-radius: 2px;
+        }
+
+        .drawing-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+        }
+
+        .drawing-card h4 {
+            font-size: 1rem;
+            color: var(--charcoal);
+            margin-bottom: 6px;
+        }
+
+        .drawing-card p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* =========================================================
+           PROCESS SECTION
+           ========================================================= */
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--copper), var(--gold), var(--copper));
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-dot {
+            width: 22px;
+            height: 22px;
+            background: var(--copper);
+            border: 4px solid var(--cream);
+            border-radius: 50%;
+            margin: 24px auto 20px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 0 2px var(--copper);
+        }
+
+        .process-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--copper);
+            font-weight: 600;
+        }
+
+        .process-step h4 {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+
+        .process-step p {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           TYPOLOGY NAV
+           ========================================================= */
+        .typology-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 50px;
+        }
+
+        .typology-chip {
+            padding: 14px 30px;
+            border: 1.5px solid var(--copper);
+            color: var(--copper);
+            font-size: 0.7rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .typology-chip:hover,
+        .typology-chip.active {
+            background: var(--copper);
+            color: #fff;
+        }
+
+        /* =========================================================
+           TESTIMONIALS
+           ========================================================= */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 2px;
+            border-left: 3px solid var(--copper);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        .testimonial-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-quote::before {
+            content: '\201C';
+            font-size: 3rem;
+            color: var(--copper);
+            line-height: 0;
+            vertical-align: -0.5em;
+            margin-right: 5px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+
+        .testimonial-project {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 3px;
+        }
+
+        /* =========================================================
+           CONTACT / FOOTER
+           ========================================================= */
+        .contact-section {
+            background: linear-gradient(135deg, var(--off-black), var(--charcoal));
+            color: #fff;
+            text-align: center;
+            padding: 100px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 50% 80% at 50% 100%, rgba(166,101,42,0.12), transparent);
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item-label {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--copper-light);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .contact-item-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--gold-light);
+        }
+
+        .footer {
+            background: var(--off-black);
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(166,101,42,0.2);
+        }
+
+        .footer p {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--text-light);
+        }
+
+        /* =========================================================
+           PLACEHOLDER IMAGES (styled boxes when no images)
+           ========================================================= */
+        .placeholder-img {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .ph-apartment { background: linear-gradient(135deg, #3a3028, #5a4838, #3a3028); }
+        .ph-villa { background: linear-gradient(135deg, #2a3a2a, #3a5038, #2a3a2a); }
+        .ph-landscape { background: linear-gradient(135deg, #1a2a33, #2a4a4f, #1a2a33); }
+        .ph-office { background: linear-gradient(135deg, #2a2a3a, #3a3a5a, #2a2a3a); }
+        .ph-hospital { background: linear-gradient(135deg, #1a3030, #2a4a4a, #1a3030); }
+        .ph-render { background: linear-gradient(135deg, #2a1a2a, #4a3050, #2a1a2a); }
+        .ph-drawing { background: linear-gradient(135deg, #f5f0e8, #e8e0d0, #f5f0e8); color: var(--text-light) !important; }
+        .ph-construction { background: linear-gradient(135deg, #3a3020, #5a4828, #3a3020); }
+        .ph-transform-before { background: linear-gradient(135deg, #4a4038, #6a5848, #4a4038); }
+        .ph-transform-after { background: linear-gradient(135deg, #2a3028, #3a4838, #2a3028); }
+
+        /* Image instruction overlay */
+        .img-instruction {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.6);
+            color: var(--gold-light);
+            padding: 12px 24px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(166,101,42,0.3);
+            white-space: nowrap;
+            z-index: 5;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+        @media (max-width: 1024px) {
+            .about { grid-template-columns: 1fr; gap: 40px; }
+            .services-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-grid.three-col { grid-template-columns: 1fr 1fr; }
+            .process-timeline { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .section-title { font-size: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .gallery-grid.two-col { grid-template-columns: 1fr; }
+            .gallery-grid.three-col { grid-template-columns: 1fr; }
+            .comparison-row { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .hero-meta { flex-direction: column; gap: 25px; }
+            .contact-details { flex-direction: column; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================= -->
+<!-- COVER PAGE                                                      -->
+<!-- ============================================================= -->
+<section class="hero">
+    <div class="hero-border"></div>
+    <div class="hero-corner tl"></div>
+    <div class="hero-corner tr"></div>
+    <div class="hero-corner bl"></div>
+    <div class="hero-corner br"></div>
+
+    <div class="hero-content">
+        <img src="image-removebg-preview (1).png" alt="VAVA Logo" class="hero-logo">
+        <h1>V<span>A</span>V<span>A</span></h1>
+        <p class="hero-tagline">Crafting Spaces That Inspire Life</p>
+        <div class="divider center" style="background: linear-gradient(90deg, transparent, var(--copper-light), transparent); width: 120px;"></div>
+
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <div class="hero-meta-number">150+</div>
+                <div class="hero-meta-label">Projects Delivered</div>
+            </div>
+            <div class="hero-meta-item">
+                <div class="hero-meta-number">10+</div>
+                <div class="hero-meta-label">Years Experience</div>
+            </div>
+            <div class="hero-meta-item">
+                <div class="hero-meta-number">6</div>
+                <div class="hero-meta-label">Typologies</div>
+            </div>
+            <div class="hero-meta-item">
+                <div class="hero-meta-number">100%</div>
+                <div class="hero-meta-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- ABOUT / PHILOSOPHY                                              -->
+<!-- ============================================================= -->
+<section class="section-padding bg-warm-white page-break">
+    <div class="container">
+        <div class="about">
+            <div class="about-image-wrap">
+                <div style="width:100%;height:520px;border-radius:2px;overflow:hidden;position:relative;">
+                    <div class="placeholder-img ph-apartment" style="height:520px;">
+                        <span>Studio / Founders Photo</span>
+                    </div>
+                    <div class="img-instruction">Replace with founders photo</div>
+                </div>
+                <div class="about-image-accent"></div>
+            </div>
+            <div class="about-text">
+                <div class="section-label">About Us</div>
+                <h2 class="section-title">Designing Experiences,<br>Not Just Spaces</h2>
+                <div class="divider"></div>
+                <div class="about-quote">
+                    "Architecture is not about building — it's about the quality of life of the people who inhabit the spaces we create."
+                </div>
+                <p>
+                    <strong>Vaibhavi and Vandan Architects (VAVA)</strong> is an Ahmedabad-based architecture and interior design studio that believes every space tells a story. With over a decade of experience, we bring a meticulous design approach that blends aesthetics with functionality.
+                </p>
+                <p>
+                    From luxurious apartments and bespoke villas to serene landscapes and dynamic workspaces, our portfolio spans diverse typologies — each crafted with precision, passion, and a deep understanding of our clients' aspirations.
+                </p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Typologies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- OUR SERVICES                                                    -->
+<!-- ============================================================= -->
+<section class="section-padding bg-cream page-break">
+    <div class="container">
+        <div style="text-align:center; max-width:700px; margin:0 auto;">
+            <div class="section-label" style="justify-content:center;">
+                <span style="width:40px;height:1.5px;background:var(--copper);display:inline-block;"></span>
+                What We Do
+                <span style="width:40px;height:1.5px;background:var(--copper);display:inline-block;"></span>
+            </div>
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle" style="margin:0 auto;">
+                End-to-end design solutions from concept to completion
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                </div>
+                <h3>Residential Design</h3>
+                <p>Apartments, villas, and bungalows designed with a focus on comfort, luxury, and lifestyle — from concept to handover.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                </div>
+                <h3>Commercial Interiors</h3>
+                <p>Office spaces, retail outlets, and commercial establishments that reflect brand identity while maximizing productivity.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"/></svg>
+                </div>
+                <h3>Landscape Design</h3>
+                <p>Transforming outdoor spaces into tranquil sanctuaries with thoughtful planting, hardscaping, and water features.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg>
+                </div>
+                <h3>3D Visualization</h3>
+                <p>Photorealistic renders and walkthroughs that bring designs to life before a single brick is laid.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"/></svg>
+                </div>
+                <h3>Working Drawings</h3>
+                <p>Precise construction documents, detailed sections, and technical drawings that ensure flawless execution on site.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07C6.75 16.64 5.88 17 4.96 17c-.73 0-1.4-.23-1.96-.61V21c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-4.61c-.56.38-1.23.61-1.96.61-.92 0-1.79-.36-2.44-1.01zM18 9h-5V7h-2v2H6c-1.66 0-3 1.34-3 3v1.54c0 1.08.88 1.96 1.96 1.96.52 0 1.02-.2 1.38-.57l2.14-2.13 2.13 2.13c.74.74 2.03.74 2.77 0l2.14-2.13 2.13 2.13c.37.37.86.57 1.38.57 1.08 0 1.96-.88 1.96-1.96V12C21 10.34 19.66 9 18 9z"/></svg>
+                </div>
+                <h3>Turnkey Projects</h3>
+                <p>Complete design-to-execution services with project management, ensuring quality delivery within timeline and budget.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- OUR DESIGN PROCESS                                              -->
+<!-- ============================================================= -->
+<section class="section-padding bg-dark page-break">
+    <div class="container">
+        <div style="text-align:center;">
+            <div class="section-label" style="justify-content:center; color:var(--copper-light);">
+                <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+                Our Approach
+                <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+            </div>
+            <h2 class="section-title light">Design Process</h2>
+            <p class="section-subtitle light" style="margin:0 auto;">
+                From first conversation to final handover — a seamless journey
+            </p>
+        </div>
+
+        <div class="process-timeline" style="--cream: var(--dark);">
+            <div class="process-step">
+                <div class="process-number">01</div>
+                <div class="process-dot" style="border-color: var(--dark);"></div>
+                <h4 style="color:#fff;">Discovery</h4>
+                <p style="color:var(--gold-light);">Understanding your vision, lifestyle, and spatial requirements</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">02</div>
+                <div class="process-dot" style="border-color: var(--dark);"></div>
+                <h4 style="color:#fff;">Concept Design</h4>
+                <p style="color:var(--gold-light);">Moodboards, space planning, and initial design direction</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">03</div>
+                <div class="process-dot" style="border-color: var(--dark);"></div>
+                <h4 style="color:#fff;">3D Visualization</h4>
+                <p style="color:var(--gold-light);">Photorealistic renders to experience the space before execution</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">04</div>
+                <div class="process-dot" style="border-color: var(--dark);"></div>
+                <h4 style="color:#fff;">Working Drawings</h4>
+                <p style="color:var(--gold-light);">Detailed technical drawings for precision construction</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">05</div>
+                <div class="process-dot" style="border-color: var(--dark);"></div>
+                <h4 style="color:#fff;">Execution</h4>
+                <p style="color:var(--gold-light);">On-site supervision ensuring design intent is delivered perfectly</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- PORTFOLIO — TYPOLOGY OVERVIEW                                   -->
+<!-- ============================================================= -->
+<section class="section-padding bg-cream page-break">
+    <div class="container" style="text-align:center;">
+        <div class="section-label" style="justify-content:center;">
+            <span style="width:40px;height:1.5px;background:var(--copper);display:inline-block;"></span>
+            Portfolio
+            <span style="width:40px;height:1.5px;background:var(--copper);display:inline-block;"></span>
+        </div>
+        <h2 class="section-title">Our Work Across Typologies</h2>
+        <p class="section-subtitle" style="margin:0 auto;">
+            Diverse projects, singular design excellence
+        </p>
+
+        <div class="typology-nav">
+            <a href="#apartments" class="typology-chip active">Apartments</a>
+            <a href="#villas" class="typology-chip">Villas</a>
+            <a href="#landscape" class="typology-chip">Landscape</a>
+            <a href="#offices" class="typology-chip">Offices</a>
+            <a href="#hospitals" class="typology-chip">Hospitals</a>
+            <a href="#render-vs-real" class="typology-chip">Render vs Real</a>
+            <a href="#transformations" class="typology-chip">Transformations</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- 1. APARTMENTS                                                   -->
+<!-- ============================================================= -->
+<section id="apartments" class="category-header cat-apartment page-break">
+    <div class="category-number">01</div>
+    <div class="category-header-content">
+        <div class="section-label" style="justify-content:center; color:var(--copper-light);">
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+            Typology
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+        </div>
+        <h2>Apartments</h2>
+        <p class="section-subtitle" style="color:var(--gold-light); margin:0 auto;">
+            Luxury living spaces crafted with precision and warmth
+        </p>
+    </div>
+</section>
+
+<!-- Apartment — Real Site Images -->
+<section class="gallery-section bg-warm-white">
+    <div class="container">
+        <div class="section-label">Real Site Images</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Completed Apartment Projects</h3>
+        <p style="color:var(--text-light); font-size:0.88rem;">Photography of delivered spaces — as experienced by our clients</p>
+
+        <div class="gallery-grid two-col" style="margin-top:30px;">
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-apartment" style="height:400px;">Apartment Living Room — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Contemporary Living Room</div>
+                    <div class="project-card-location">3 BHK Apartment, Satellite, Ahmedabad</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-apartment" style="height:400px;">Apartment Master Bedroom — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Master Bedroom Suite</div>
+                    <div class="project-card-location">4 BHK Luxury Flat, SG Highway, Ahmedabad</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-apartment" style="height:400px;">Apartment Kitchen — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Modular Kitchen Design</div>
+                    <div class="project-card-location">Premium Apartment, Bodakdev, Ahmedabad</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-apartment" style="height:400px;">Apartment Foyer — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Grand Foyer & Entrance</div>
+                    <div class="project-card-location">Penthouse, Prahlad Nagar, Ahmedabad</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Apartment — 3D Renders -->
+<section class="gallery-section bg-cream page-break">
+    <div class="container">
+        <div class="section-label">3D Rendered Images</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Apartment Visualizations</h3>
+        <p style="color:var(--text-light); font-size:0.88rem;">Photorealistic renders showcasing design intent before execution</p>
+
+        <div class="gallery-grid three-col" style="margin-top:30px;">
+            <div class="project-card">
+                <div style="height:320px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-render" style="height:320px;">Living Room 3D Render</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">3D Render</div>
+                    <div class="project-card-title">Living Area Concept</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:320px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-render" style="height:320px;">Dining Room 3D Render</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">3D Render</div>
+                    <div class="project-card-title">Dining Space</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:320px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-render" style="height:320px;">Bedroom 3D Render</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">3D Render</div>
+                    <div class="project-card-title">Bedroom Visualization</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Apartment — Working Drawings -->
+<section class="gallery-section bg-warm-white">
+    <div class="container">
+        <div class="section-label">Working Drawings</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Technical Documentation</h3>
+        <p style="color:var(--text-light); font-size:0.88rem;">Precision drawings that translate design vision into buildable reality</p>
+
+        <div class="gallery-grid three-col" style="margin-top:30px;">
+            <div class="drawing-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-drawing" style="height:300px;">Floor Plan Layout</div>
+                    <div class="img-instruction" style="background:rgba(166,101,42,0.8);">Replace with floor plan</div>
+                </div>
+                <h4>Floor Plan Layout</h4>
+                <p>Detailed space planning with furniture layout and dimensions</p>
+            </div>
+            <div class="drawing-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-drawing" style="height:300px;">Electrical Layout</div>
+                    <div class="img-instruction" style="background:rgba(166,101,42,0.8);">Replace with electrical drawing</div>
+                </div>
+                <h4>Electrical Layout</h4>
+                <p>Switch board locations, light points, and electrical routing</p>
+            </div>
+            <div class="drawing-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-drawing" style="height:300px;">Joinery Detail Section</div>
+                    <div class="img-instruction" style="background:rgba(166,101,42,0.8);">Replace with section detail</div>
+                </div>
+                <h4>Joinery Details</h4>
+                <p>Sectional details for custom furniture and millwork</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Apartment — Under Construction -->
+<section class="gallery-section bg-cream page-break">
+    <div class="container">
+        <div class="section-label">Under Construction</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Ongoing Apartment Projects</h3>
+        <p style="color:var(--text-light); font-size:0.88rem;">Exciting projects currently taking shape on site</p>
+
+        <div class="gallery-grid two-col" style="margin-top:30px;">
+            <div class="project-card">
+                <div style="height:380px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-construction" style="height:380px;">Under Construction Site Photo 1</div>
+                    <div class="img-instruction">Replace with construction photo</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="construction-badge">Under Construction</div>
+                    <div class="project-card-title">Premium 4 BHK Interior</div>
+                    <div class="project-card-location">Thaltej, Ahmedabad — Expected Completion: Q2 2026</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:380px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-construction" style="height:380px;">Under Construction Site Photo 2</div>
+                    <div class="img-instruction">Replace with construction photo</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="construction-badge">Under Construction</div>
+                    <div class="project-card-title">Luxury Penthouse Fitout</div>
+                    <div class="project-card-location">Vastrapur, Ahmedabad — Expected Completion: Q3 2026</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- 2. VILLAS                                                       -->
+<!-- ============================================================= -->
+<section id="villas" class="category-header cat-villa page-break">
+    <div class="category-number">02</div>
+    <div class="category-header-content">
+        <div class="section-label" style="justify-content:center; color:var(--copper-light);">
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+            Typology
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+        </div>
+        <h2>Villas &amp; Bungalows</h2>
+        <p class="section-subtitle" style="color:var(--gold-light); margin:0 auto;">
+            Bespoke residences that embody elegance and individuality
+        </p>
+    </div>
+</section>
+
+<!-- Villa — Real Site Images -->
+<section class="gallery-section bg-warm-white">
+    <div class="container">
+        <div class="section-label">Real Site Images</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Completed Villa Projects</h3>
+
+        <div class="gallery-grid two-col" style="margin-top:30px;">
+            <div class="project-card tall">
+                <div style="height:500px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-villa" style="height:500px;">Villa Exterior — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Contemporary Villa Facade</div>
+                    <div class="project-card-location">Shilaj, Ahmedabad</div>
+                </div>
+            </div>
+            <div class="project-card tall">
+                <div style="height:500px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-villa" style="height:500px;">Villa Interior Living — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Double-Height Living Room</div>
+                    <div class="project-card-location">Bopal, Ahmedabad</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-villa" style="height:400px;">Villa Staircase — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Sculptural Staircase</div>
+                    <div class="project-card-location">Thaltej, Ahmedabad</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-villa" style="height:400px;">Villa Pool Area — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Pool & Outdoor Lounge</div>
+                    <div class="project-card-location">Gandhinagar</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Villa — 3D Renders -->
+<section class="gallery-section bg-cream page-break">
+    <div class="container">
+        <div class="section-label">3D Rendered Images</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Villa Visualizations</h3>
+
+        <div class="gallery-grid three-col" style="margin-top:30px;">
+            <div class="project-card">
+                <div style="height:320px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-render" style="height:320px;">Villa Exterior 3D Render</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">3D Render</div>
+                    <div class="project-card-title">Villa Exterior Concept</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:320px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-render" style="height:320px;">Villa Living Room Render</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">3D Render</div>
+                    <div class="project-card-title">Living Room Concept</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:320px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-render" style="height:320px;">Villa Master Suite Render</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">3D Render</div>
+                    <div class="project-card-title">Master Suite Design</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Villa — Working Drawings -->
+<section class="gallery-section bg-warm-white">
+    <div class="container">
+        <div class="section-label">Working Drawings</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Villa Technical Drawings</h3>
+
+        <div class="gallery-grid three-col" style="margin-top:30px;">
+            <div class="drawing-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-drawing" style="height:300px;">Villa Floor Plan</div>
+                    <div class="img-instruction" style="background:rgba(166,101,42,0.8);">Replace with floor plan</div>
+                </div>
+                <h4>Ground Floor Plan</h4>
+                <p>Complete ground floor layout with landscape integration</p>
+            </div>
+            <div class="drawing-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-drawing" style="height:300px;">Villa Section Drawing</div>
+                    <div class="img-instruction" style="background:rgba(166,101,42,0.8);">Replace with section</div>
+                </div>
+                <h4>Building Section</h4>
+                <p>Longitudinal section showing spatial relationships</p>
+            </div>
+            <div class="drawing-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-drawing" style="height:300px;">Villa Elevation</div>
+                    <div class="img-instruction" style="background:rgba(166,101,42,0.8);">Replace with elevation</div>
+                </div>
+                <h4>Front Elevation</h4>
+                <p>Architectural elevation with material annotations</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Villa — Under Construction -->
+<section class="gallery-section bg-cream">
+    <div class="container">
+        <div class="section-label">Under Construction</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Ongoing Villa Projects</h3>
+
+        <div class="gallery-grid two-col" style="margin-top:30px;">
+            <div class="project-card">
+                <div style="height:380px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-construction" style="height:380px;">Villa Under Construction Photo</div>
+                    <div class="img-instruction">Replace with construction photo</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="construction-badge">Under Construction</div>
+                    <div class="project-card-title">Modern Minimalist Villa</div>
+                    <div class="project-card-location">South Bopal, Ahmedabad — Structural phase complete</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:380px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-construction" style="height:380px;">Villa Interior WIP Photo</div>
+                    <div class="img-instruction">Replace with construction photo</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="construction-badge">Under Construction</div>
+                    <div class="project-card-title">Luxury Farmhouse</div>
+                    <div class="project-card-location">Sanand, Ahmedabad — Interior fitout in progress</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- 3. LANDSCAPE                                                    -->
+<!-- ============================================================= -->
+<section id="landscape" class="category-header cat-landscape page-break">
+    <div class="category-number">03</div>
+    <div class="category-header-content">
+        <div class="section-label" style="justify-content:center; color:var(--copper-light);">
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+            Typology
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+        </div>
+        <h2>Landscape Design</h2>
+        <p class="section-subtitle" style="color:var(--gold-light); margin:0 auto;">
+            Nature-inspired outdoor spaces that extend the living experience
+        </p>
+    </div>
+</section>
+
+<section class="gallery-section bg-warm-white">
+    <div class="container">
+        <div class="section-label">Real Site Images</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Completed Landscape Projects</h3>
+
+        <div class="gallery-grid two-col" style="margin-top:30px;">
+            <div class="project-card tall">
+                <div style="height:500px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-landscape" style="height:500px;">Garden Landscape — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Zen Garden & Water Feature</div>
+                    <div class="project-card-location">Private Bungalow, Bopal</div>
+                </div>
+            </div>
+            <div class="project-card tall">
+                <div style="height:500px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-landscape" style="height:500px;">Terrace Garden — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Rooftop Terrace Garden</div>
+                    <div class="project-card-location">Penthouse, Satellite</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-grid three-col" style="margin-top:30px;">
+            <div class="project-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-landscape" style="height:300px;">Pathway Design</div>
+                    <div class="img-instruction">Replace with site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Pathway & Hardscape</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-landscape" style="height:300px;">Outdoor Seating Area</div>
+                    <div class="img-instruction">Replace with site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Outdoor Living Area</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-render" style="height:300px;">Landscape 3D Render</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">3D Render</div>
+                    <div class="project-card-title">Landscape Visualization</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- 4. OFFICES                                                      -->
+<!-- ============================================================= -->
+<section id="offices" class="category-header cat-office page-break">
+    <div class="category-number">04</div>
+    <div class="category-header-content">
+        <div class="section-label" style="justify-content:center; color:var(--copper-light);">
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+            Typology
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+        </div>
+        <h2>Office Spaces</h2>
+        <p class="section-subtitle" style="color:var(--gold-light); margin:0 auto;">
+            Workspaces designed to inspire productivity and collaboration
+        </p>
+    </div>
+</section>
+
+<section class="gallery-section bg-warm-white">
+    <div class="container">
+        <div class="section-label">Real Site Images</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Completed Office Projects</h3>
+
+        <div class="gallery-grid two-col" style="margin-top:30px;">
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-office" style="height:400px;">Office Reception — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Corporate Reception Lobby</div>
+                    <div class="project-card-location">SG Highway, Ahmedabad</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-office" style="height:400px;">Open Workspace — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Open Plan Workspace</div>
+                    <div class="project-card-location">CG Road, Ahmedabad</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-office" style="height:400px;">Conference Room — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Executive Conference Room</div>
+                    <div class="project-card-location">Prahlad Nagar, Ahmedabad</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-office" style="height:400px;">Cabin / Director Office — Real Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Director's Cabin</div>
+                    <div class="project-card-location">Bodakdev, Ahmedabad</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Office — 3D Renders + Working Drawings -->
+<section class="gallery-section bg-cream page-break">
+    <div class="container">
+        <div class="section-label">3D Renders &amp; Working Drawings</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Office Design Process</h3>
+
+        <div class="gallery-grid three-col" style="margin-top:30px;">
+            <div class="project-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-render" style="height:300px;">Office 3D Render</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">3D Render</div>
+                    <div class="project-card-title">Reception Concept</div>
+                </div>
+            </div>
+            <div class="drawing-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-drawing" style="height:300px;">Office Layout Plan</div>
+                    <div class="img-instruction" style="background:rgba(166,101,42,0.8);">Replace with floor plan</div>
+                </div>
+                <h4>Office Floor Plan</h4>
+                <p>Zoned layout with workspace, meeting, and utility areas</p>
+            </div>
+            <div class="drawing-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-drawing" style="height:300px;">Ceiling Layout</div>
+                    <div class="img-instruction" style="background:rgba(166,101,42,0.8);">Replace with ceiling plan</div>
+                </div>
+                <h4>Ceiling Layout</h4>
+                <p>False ceiling design with lighting and AC integration</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- 5. HOSPITALS                                                    -->
+<!-- ============================================================= -->
+<section id="hospitals" class="category-header cat-hospital page-break">
+    <div class="category-number">05</div>
+    <div class="category-header-content">
+        <div class="section-label" style="justify-content:center; color:var(--copper-light);">
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+            Typology
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+        </div>
+        <h2>Healthcare Facilities</h2>
+        <p class="section-subtitle" style="color:var(--gold-light); margin:0 auto;">
+            Healing environments designed with empathy and precision
+        </p>
+    </div>
+</section>
+
+<section class="gallery-section bg-warm-white">
+    <div class="container">
+        <div class="section-label">Real Site Images</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Completed Healthcare Projects</h3>
+
+        <div class="gallery-grid two-col" style="margin-top:30px;">
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-hospital" style="height:400px;">Hospital Reception — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Hospital Reception & Lobby</div>
+                    <div class="project-card-location">Multi-Specialty Hospital, Ahmedabad</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-hospital" style="height:400px;">Clinic Interior — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Dental Clinic Interior</div>
+                    <div class="project-card-location">Navrangpura, Ahmedabad</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-hospital" style="height:400px;">Waiting Area — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">Patient Waiting Lounge</div>
+                    <div class="project-card-location">Eye Hospital, SG Highway</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div style="height:400px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-hospital" style="height:400px;">OPD Area — Real Site Photo</div>
+                    <div class="img-instruction">Replace with real site image</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">Real Site</div>
+                    <div class="project-card-title">OPD Consultation Area</div>
+                    <div class="project-card-location">Healthcare Center, Gandhinagar</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Hospital — 3D Renders -->
+<section class="gallery-section bg-cream">
+    <div class="container">
+        <div class="section-label">3D Renders &amp; Working Drawings</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Healthcare Design Process</h3>
+
+        <div class="gallery-grid three-col" style="margin-top:30px;">
+            <div class="project-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-render" style="height:300px;">Hospital 3D Render</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="project-card-overlay">
+                    <div class="project-card-tag">3D Render</div>
+                    <div class="project-card-title">Hospital Lobby Concept</div>
+                </div>
+            </div>
+            <div class="drawing-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-drawing" style="height:300px;">Hospital Floor Plan</div>
+                    <div class="img-instruction" style="background:rgba(166,101,42,0.8);">Replace with floor plan</div>
+                </div>
+                <h4>Hospital Floor Plan</h4>
+                <p>Zoned layout with patient flow, staff areas, and services</p>
+            </div>
+            <div class="drawing-card">
+                <div style="height:300px;position:relative;overflow:hidden;">
+                    <div class="placeholder-img ph-drawing" style="height:300px;">MEP Coordination Drawing</div>
+                    <div class="img-instruction" style="background:rgba(166,101,42,0.8);">Replace with MEP drawing</div>
+                </div>
+                <h4>MEP Coordination</h4>
+                <p>Integrated mechanical, electrical, and plumbing layout</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- 6. RENDER VS REAL                                               -->
+<!-- ============================================================= -->
+<section id="render-vs-real" class="category-header cat-render page-break">
+    <div class="category-number">06</div>
+    <div class="category-header-content">
+        <div class="section-label" style="justify-content:center; color:var(--copper-light);">
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+            Showcase
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+        </div>
+        <h2>Render vs Real</h2>
+        <p class="section-subtitle" style="color:var(--gold-light); margin:0 auto;">
+            Where visualization meets reality — our promise delivered
+        </p>
+    </div>
+</section>
+
+<section class="comparison-section bg-warm-white">
+    <div class="container">
+        <div class="section-label">Side by Side</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Design Promise, Delivered</h3>
+        <p style="color:var(--text-light); font-size:0.88rem; margin-bottom:40px;">
+            Our renders aren't just visualizations — they're commitments. See how our designs translate from screen to reality.
+        </p>
+
+        <!-- Comparison 1 -->
+        <div class="comparison-row">
+            <div class="comparison-image-wrap">
+                <div style="height:380px;position:relative;">
+                    <div class="placeholder-img ph-render" style="height:380px;">3D Render — Living Room</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="comparison-label">3D Render</div>
+            </div>
+            <div class="comparison-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+            <div class="comparison-image-wrap">
+                <div style="height:380px;position:relative;">
+                    <div class="placeholder-img ph-apartment" style="height:380px;">Real Site Photo — Living Room</div>
+                    <div class="img-instruction">Replace with real site photo</div>
+                </div>
+                <div class="comparison-label">Real Site</div>
+            </div>
+        </div>
+
+        <!-- Comparison 2 -->
+        <div class="comparison-row">
+            <div class="comparison-image-wrap">
+                <div style="height:380px;position:relative;">
+                    <div class="placeholder-img ph-render" style="height:380px;">3D Render — Kitchen</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="comparison-label">3D Render</div>
+            </div>
+            <div class="comparison-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+            <div class="comparison-image-wrap">
+                <div style="height:380px;position:relative;">
+                    <div class="placeholder-img ph-apartment" style="height:380px;">Real Site Photo — Kitchen</div>
+                    <div class="img-instruction">Replace with real site photo</div>
+                </div>
+                <div class="comparison-label">Real Site</div>
+            </div>
+        </div>
+
+        <!-- Comparison 3 -->
+        <div class="comparison-row">
+            <div class="comparison-image-wrap">
+                <div style="height:380px;position:relative;">
+                    <div class="placeholder-img ph-render" style="height:380px;">3D Render — Bedroom</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="comparison-label">3D Render</div>
+            </div>
+            <div class="comparison-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+            <div class="comparison-image-wrap">
+                <div style="height:380px;position:relative;">
+                    <div class="placeholder-img ph-apartment" style="height:380px;">Real Site Photo — Bedroom</div>
+                    <div class="img-instruction">Replace with real site photo</div>
+                </div>
+                <div class="comparison-label">Real Site</div>
+            </div>
+        </div>
+
+        <!-- Comparison 4 — Villa -->
+        <div class="comparison-row" style="margin-top:50px;">
+            <div class="comparison-image-wrap">
+                <div style="height:380px;position:relative;">
+                    <div class="placeholder-img ph-render" style="height:380px;">3D Render — Villa Exterior</div>
+                    <div class="img-instruction">Replace with 3D render</div>
+                </div>
+                <div class="comparison-label">3D Render</div>
+            </div>
+            <div class="comparison-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+            <div class="comparison-image-wrap">
+                <div style="height:380px;position:relative;">
+                    <div class="placeholder-img ph-villa" style="height:380px;">Real Site Photo — Villa Exterior</div>
+                    <div class="img-instruction">Replace with real site photo</div>
+                </div>
+                <div class="comparison-label">Real Site</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- 7. TRANSFORMATIONS (BEFORE / AFTER)                             -->
+<!-- ============================================================= -->
+<section id="transformations" class="category-header cat-transformation page-break">
+    <div class="category-number">07</div>
+    <div class="category-header-content">
+        <div class="section-label" style="justify-content:center; color:var(--copper-light);">
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+            Showcase
+            <span style="width:40px;height:1.5px;background:var(--copper-light);display:inline-block;"></span>
+        </div>
+        <h2>Transformations</h2>
+        <p class="section-subtitle" style="color:var(--gold-light); margin:0 auto;">
+            Dramatic before &amp; after reveals — spaces reborn through design
+        </p>
+    </div>
+</section>
+
+<section class="gallery-section bg-warm-white">
+    <div class="container">
+        <div class="section-label">Before &amp; After</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:5px;">Design Transformations</h3>
+        <p style="color:var(--text-light); font-size:0.88rem; margin-bottom:40px;">
+            Witness the power of thoughtful design — how ordinary spaces become extraordinary experiences
+        </p>
+
+        <!-- Transformation 1 -->
+        <div style="margin-bottom:20px;">
+            <h4 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--copper); margin-bottom:15px;">Living Room Renovation — Satellite, Ahmedabad</h4>
+            <div class="transform-grid">
+                <div class="transform-side">
+                    <div style="height:420px;position:relative;">
+                        <div class="placeholder-img ph-transform-before" style="height:420px;">Before — Old Living Room</div>
+                        <div class="img-instruction">Replace with BEFORE photo</div>
+                    </div>
+                    <div class="transform-badge">Before</div>
+                </div>
+                <div class="transform-side">
+                    <div style="height:420px;position:relative;">
+                        <div class="placeholder-img ph-transform-after" style="height:420px;">After — Redesigned Living Room</div>
+                        <div class="img-instruction">Replace with AFTER photo</div>
+                    </div>
+                    <div class="transform-badge after">After</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transformation 2 -->
+        <div style="margin-bottom:20px;">
+            <h4 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--copper); margin-bottom:15px;">Kitchen Makeover — Bodakdev, Ahmedabad</h4>
+            <div class="transform-grid">
+                <div class="transform-side">
+                    <div style="height:420px;position:relative;">
+                        <div class="placeholder-img ph-transform-before" style="height:420px;">Before — Old Kitchen</div>
+                        <div class="img-instruction">Replace with BEFORE photo</div>
+                    </div>
+                    <div class="transform-badge">Before</div>
+                </div>
+                <div class="transform-side">
+                    <div style="height:420px;position:relative;">
+                        <div class="placeholder-img ph-transform-after" style="height:420px;">After — Modern Kitchen</div>
+                        <div class="img-instruction">Replace with AFTER photo</div>
+                    </div>
+                    <div class="transform-badge after">After</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transformation 3 -->
+        <div>
+            <h4 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--copper); margin-bottom:15px;">Complete Home Renovation — Prahladnagar, Ahmedabad</h4>
+            <div class="transform-grid">
+                <div class="transform-side">
+                    <div style="height:420px;position:relative;">
+                        <div class="placeholder-img ph-transform-before" style="height:420px;">Before — Old Master Bedroom</div>
+                        <div class="img-instruction">Replace with BEFORE photo</div>
+                    </div>
+                    <div class="transform-badge">Before</div>
+                </div>
+                <div class="transform-side">
+                    <div style="height:420px;position:relative;">
+                        <div class="placeholder-img ph-transform-after" style="height:420px;">After — Luxury Bedroom Suite</div>
+                        <div class="img-instruction">Replace with AFTER photo</div>
+                    </div>
+                    <div class="transform-badge after">After</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- TESTIMONIALS                                                    -->
+<!-- ============================================================= -->
+<section class="section-padding bg-cream page-break">
+    <div class="container">
+        <div style="text-align:center; max-width:700px; margin:0 auto; margin-bottom:20px;">
+            <div class="section-label" style="justify-content:center;">
+                <span style="width:40px;height:1.5px;background:var(--copper);display:inline-block;"></span>
+                Client Love
+                <span style="width:40px;height:1.5px;background:var(--copper);display:inline-block;"></span>
+            </div>
+            <h2 class="section-title">What Our Clients Say</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">VAVA transformed our apartment into a space we're truly proud of. Their attention to detail and understanding of our lifestyle was remarkable. Every corner tells a story.</p>
+                <p class="testimonial-author">Mr. &amp; Mrs. Patel</p>
+                <p class="testimonial-project">4 BHK Apartment, SG Highway</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">Working with Vaibhavi and Vandan was an absolute pleasure. They delivered our office space on time and the result exceeded our expectations. Our team loves coming to work now.</p>
+                <p class="testimonial-author">Rajesh Mehta</p>
+                <p class="testimonial-project">Corporate Office, Prahlad Nagar</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">Our villa is a masterpiece. From the facade design to the landscape, every element is thoughtfully designed. VAVA truly understands the art of luxury living.</p>
+                <p class="testimonial-author">Dr. Sharma Family</p>
+                <p class="testimonial-project">Luxury Villa, Shilaj</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">The hospital design they created prioritizes patient comfort while maintaining clinical efficiency. The calming aesthetics have received wonderful feedback from patients and staff alike.</p>
+                <p class="testimonial-author">Dr. Anand Trivedi</p>
+                <p class="testimonial-project">Multi-Specialty Clinic, Navrangpura</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================= -->
+<!-- CONTACT / CLOSING                                               -->
+<!-- ============================================================= -->
+<section class="contact-section page-break">
+    <div class="contact-content">
+        <img src="image-removebg-preview (1).png" alt="VAVA Logo" style="width:160px; margin:0 auto 30px; filter:brightness(1.2);">
+        <h2 style="font-family:'Playfair Display',serif; font-size:2.6rem; color:#fff; margin-bottom:10px;">Let's Create Something Beautiful</h2>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--gold-light); font-style:italic; margin-bottom:10px;">
+            Ready to transform your space? We'd love to hear from you.
+        </p>
+        <div class="divider center" style="background:linear-gradient(90deg, transparent, var(--copper-light), transparent); width:100px;"></div>
+
+        <div class="contact-details">
+            <div class="contact-item">
+                <div class="contact-item-label">Studio</div>
+                <div class="contact-item-value">Ahmedabad, Gujarat, India</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-value">info@vavaarchitects.com</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-label">Phone</div>
+                <div class="contact-item-value">+91 XXXXX XXXXX</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-label">Instagram</div>
+                <div class="contact-item-value">@vavaarchitects</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2026 VAIBHAVI AND VANDAN ARCHITECTS &nbsp;&bull;&nbsp; ALL RIGHTS RESERVED</p>
+</footer>
+
+</body>
+</html>
